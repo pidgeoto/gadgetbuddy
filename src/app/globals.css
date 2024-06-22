@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: "#000";
+  background: "#B8FFF9";
+  font-family: "Source Sans 3", sans-serif;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: black;
+}
+
+.container {
+  @apply max-w-screen-xl px-4 sm:px-8 md:px-16 lg:px-40 flex items-center !important;
+}
+.container-footer {
+  @apply max-w-screen-xl px-4 sm:px-8 md:px-16 lg:px-40 lg:mx-20 py-8 flex flex-col lg:flex-row items-start justify-center lg:justify-between !important;
+}
+.product_image_mini {
+  @apply bg-white border h-[64px] lg:h-[90px] w-[64px] mx-auto lg:w-[90px] border-slate-200 shadow-sm hover:shadow-xl p-2 rounded-xl cursor-pointer;
+}
+.comparisionData {
+  @apply text-[12px] min-h-[32px] my-2 border w-[100%] border-slate-200 shadow-sm hover:shadow-xl p-2 rounded-xl cursor-pointer;
+}
+.comparisionDataList {
+  @apply text-[12px] text-center my-2 border border-slate-200 shadow-sm whitespace-pre p-2 rounded-xl bg-black text-white;
+}
+
+.selected_thumbnail {
+  @apply border-green-400;
+}
+.tblDesc {
+  @apply min-w-[200px] w-full min-h-[20px];
+}
+.directionBtn {
+  @apply bg-black rounded-full text-white p-1 hover:bg-white hover:text-black border;
+}
+.accordianData {
+  @apply capitalize px-4 py-2 rounded-lg my-2 flex items-center justify-between bg-white border;
+  h4{
+    @apply font-normal text-base
+  }
+  h6{
+    @apply font-medium text-sm
+  }
+}
+.scoreTag {
+  @apply px-4 py-1 text-white rounded-full shadow-xl hover:cursor-pointer;
+}
+.pageTitle {
+  @apply text-2xl font-semibold mt-2 lg:mt-4 lg:mb-6 mb-6 capitalize;
+}
+
+@layer base {
+  .body {
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 4rem;
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  h3 {
+    font-size: 20px !important;
+    color: #000;
+    font-weight: 600 !important;
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  h5 {
+    font-weight: 600 !important;
+    font-size: 0.87rem;
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  h6 {
+    font-weight: 400;
+    font-size: 0.75rem;
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  button.primary {
+    background-color: black;
+    color: white;
+    transition: 1s ease-in-out;
+  }
+
+  button.secondary {
+    background-color: white;
+    color: black;
+    transition: 1s ease-in-out;
+  }
+
+  button.primary,
+  button.secondary {
+    height: 2.5rem;
+    width: 7rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 1.5rem;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    -moz-transition: background-color 0.3s, color 0.3s;
+    -ms-transition: background-color 0.3s, color 0.3s;
+    -o-transition: background-color 0.3s, color 0.3s;
+  }
+
+  button.primary:hover {
+    background-color: white;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  button.secondary:hover {
+    background-color: black;
+    color: white;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 1rem !important;
+    font-family: "Verdana", sans-serif !important;
+  }
+
+  .card {
+    width: 221px;
+    height: 300px;
+    padding: 5%;
+    background-color: #f0f0f0;
+    border-radius: 8%;
+  }
+}
+
+a {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: black;
+}
+
+a:hover {
+  color: rgb(48, 203, 48);
+}
+
+.mobileLogo {
+  font-size: 1.375rem;
+  color: #000;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
+  }
+
+  h4 {
+    font-size: 0.75rem;
+  }
+
+  h5 {
+    font-size: 0.7rem;
+  }
+
+  h6 {
+    font-size: 0.65rem;
+  }
+
+  button.primary,
+  button.secondary {
+    height: 2rem;
+    width: 6rem;
+    font-size: 0.875rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.ad-banner-container {
+  transition: transform 2s ease-in-out;
+  -webkit-transition: transform 2s ease-in-out;
+  -moz-transition: transform 2s ease-in-out;
+  -ms-transition: transform 2s ease-in-out;
+  -o-transition: transform 2s ease-in-out;
+}
+.hcontent{
+  font-size: 33px;
+  font-weight: 400;
+  margin: 28px 0px 12px;
+}
+.pcontent{
+  font-size: 20px !important;
+  font-weight: 300 !important;
+  font-family: "Source Sans 3", sans-serif !important;
+  line-height: 24px;
+  margin: 16px 0px 8px;
+}

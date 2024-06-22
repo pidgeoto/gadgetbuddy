@@ -1,0 +1,118 @@
+h1,
+h2 {
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 2.2rem !important;
+  line-height: 35px !important;
+}
+
+h2 {
+  font-size: 27px !important;
+  margin-top: 24px !important;
+  text-transform: capitalize !important;
+}
+
+h3 {
+  font-size: 18px !important;
+  color: #000;
+  font-weight: 500;
+}
+
+.imgClass {
+  max-height: 400px;
+  height: 100%;
+  max-width: 400px !important;
+  width: 100%;
+  margin: 12px auto !important;
+}
+
+p {
+  font-weight: 400;
+  font-size: 16px !important;
+  font-family: "Source Sans 3", sans-serif !important;
+  line-height: 1.4;
+}
+ul{
+  margin: 5px;
+  padding-left: 25px !important;
+  list-style-type: disc;
+}
+
+table {
+  border: 1px solid;
+  width: 90%;
+  color: #000 !important;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table th {
+  font-weight: 500;
+  height: 40px;
+  font-size: 15px;
+  background: #3f58fa;
+  color: #fff;
+}
+
+table tr {
+  background: #fff;
+  height: 30px;
+}
+
+table tr:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  cursor: pointer;
+}
+
+table td {
+  text-align: center;
+  font-size: 12px;
+}
+
+.primaryTable {
+  background: #3f58fa;
+  color: #fff;
+}
+
+.secondaryTable {
+  background: #3ffa55;
+  color: #fff;
+}
+
+.commonTable {
+  background: #fa3f3f;
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 24px !important;
+  }
+
+  h2,
+  h3 {
+    font-size: 22px !important;
+  }
+
+  h3 {
+    color: #000;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 12px !important;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table td {
+    text-align: left;
+    font-size: 10px;
+  }
+}

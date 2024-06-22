@@ -1,0 +1,149 @@
+:root {
+    --track-w: 30em;
+    --track-h: 0.5em;
+    --track-r: calc(var(--track-h) * 0.5);
+    --track-bg: linear-gradient(#5b5b5b, #828282 70%, #888);
+    
+    --progr-bg: 
+      linear-gradient(#096daa, rgba(#096daa, 0.01) 0.25em),
+      repeating-linear-gradient(135deg, transparent, transparent 4px, #027bc1 5px, #027bc1 7px),
+      linear-gradient(#2f9cdb, #2f9cdb);
+    --thumb-d: 1em;
+    --thumb-r: calc(var(--thumb-d) * 0.5);
+    --arrow-a: 35deg;
+  }
+  
+  @keyframes gradientAnimation {
+    to {
+      background-size: var(--pos) 100%;
+    }
+  }
+  
+  body {
+    height: 100%;
+    background: 
+      url(https://i.stack.imgur.com/PEnJm.png), 
+      radial-gradient(#e7e7e9, #c3c8cc);
+    background-blend-mode: multiply;
+  }
+  
+  body:not(.js) {
+    output[for], .wrap::before, .wrap::after { display: none; }
+  }
+  
+  .sr-only {
+    position: fixed;
+    -webkit-clip-path: circle(0);
+    clip-path: circle(0);
+  }
+  
+  .wrap {
+    --min: 0;
+    --max: 100;
+    --p: '';
+    --s: '';
+    --track-w: var(--track-w);
+    --uu: calc((var(--track-w) - var(--thumb-d)) / (var(--max) - var(--min)));
+    display: grid;
+    align-content: center;
+    position: relative;
+    margin: 5em auto;
+    width: var(--track-w);
+    max-width: 100%;
+    height: var(--track-h);
+    border-radius: var(--track-r);
+    box-shadow: 0 1px #f3f6f8;
+    background: var(--track-bg);
+    cursor: pointer;
+    position: relative;
+  
+    &::before,
+    &::after {
+      --i: 0;
+      --noti: calc(1 - var(--i));
+      --sgni: calc(1 - 2 * var(--i));
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      bottom: 0;
+      left: calc(var(--thumb-r) + (var(--noti) * (var(--a) - var(--min)) + var(--i) * (var(--b) - var(--min))) * var(--uu));
+      width: calc(var(--sgni) * (var(--b) - var(--a)) * var(--uu));
+      background: var(--progr-bg);
+      content: '';
+    }
+  
+    &::after { --i: 1; }
+  
+    &:focus-within { filter: none; }
+  
+    @media (max-width: 480px) { --track-w: 100vw; }
+  }
+  
+  input,
+  output { --hl: 0; --nothl: calc(1 - var(--hl)); }
+  
+  input[type='range'] {
+    &,
+    &::-webkit-slider-thumb,
+    &::-webkit-slider-runnable-track {
+      -webkit-appearance: none;
+    }
+  
+    grid-area: 1/1;
+    position: relative;
+    z-index: calc(1 + var(--hl));
+    width: var(--track-w);
+    min-height: calc(2 * var(--thumb-d));
+    background: none;
+  
+    &::-webkit-slider-runnable-track { @include track(); }
+    &::-moz-range-track { @include track(); }
+    &::-ms-track { @include track(); }
+  
+    &::-webkit-slider-thumb { @include thumb(calc(0.5 * (var(--track-h) - var(--thumb-d)))); }
+    &::-moz-range-thumb { @include thumb(); }
+    &::-ms-thumb { @include thumb(); }
+  
+    &:only-of-type {
+      --pos: calc(var(--thumb-r) + (var(--c) - var(--min)) * var(--uu));
+  
+      .js &::-webkit-slider-runnable-track {
+        @include progr();
+        background-repeat: no-repeat;
+        animation: gradientAnimation 0.5s forwards;
+      }
+  
+      &::-moz-range-progress { @include progr(); }
+      &::-ms-fill-lower { @include progr(); }
+    }
+  
+    &:not(:only-of-type) {
+      pointer-events: none;
+  
+      &::-ms-fill-lower { display: none; }
+    }
+  
+    &:focus {
+      outline: solid 0 transparent;
+  
+      &,
+      & + [for] { --hl: 1; }
+    }
+  }
+  
+  output[for] {
+    --ar: 0;
+    --pos: calc((var(--c) - var(--min)) * var(--uu));
+    position: absolute;
+    z-index: var(--hl);
+    bottom: 100%;
+    left: var(--thumb-r);
+    transform: translate(calc(var(--pos) - 50%));
+    filter: drop-shadow(0 2px 3px #afb0b4);
+    counter-reset: c var(--c);
+  
+    &::after {
+      display: block;
+    }
+  }
+  
